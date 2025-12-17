@@ -1,7 +1,6 @@
 import faiss
 import pickle
 from sentence_transformers import SentenceTransformer
-
 from recommender.rank import rank_assessments
 from recommender.balance import balance_assessments
 
@@ -10,7 +9,7 @@ _index = None
 _metadata = None
 
 
-def load_resources():
+def _load_resources():
     global _model, _index, _metadata
 
     if _model is None:
@@ -23,8 +22,9 @@ def load_resources():
         with open("embeddings/faiss_index/metadata.pkl", "rb") as f:
             _metadata = pickle.load(f)
 
-    return _model, _index, _metadata
+
 def retrieve_assessments(query: str, top_k: int = 10):
+    _load_resources()
     query_embedding = _model.encode([query])
 
     distances, indices = _index.search(query_embedding, 20)
