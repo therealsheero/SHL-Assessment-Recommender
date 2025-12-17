@@ -92,20 +92,16 @@ This makes the system fully reproducible without external vector DB dependencies
 
 ### 4. Ranking
 - Retrieved results are passed through a ranking module
-- Current strategy preserves semantic similarity ordering
+- This strategy preserves semantic similarity ordering
 - Designed for easy extension (duration, job level, weighting)
 
 ### 5. Balancing
 - Ensures diversity across test categories
-- Example:
-  - Knowledge & Skills
-  - Personality & Behavior
-  - Competencies
-- Prevents over-representation of a single test type
+- Prevents more or over representation of a single test type
 
 ---
 
-## 🌐 API Endpoints
+## API Endpoints
 
 ### Health Check
 <img width="1920" height="970" alt="Screenshot (38)" src="https://github.com/user-attachments/assets/c35d8ae7-0537-41e1-9e03-4efb817a2357" />
