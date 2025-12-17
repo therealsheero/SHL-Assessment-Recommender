@@ -3,8 +3,9 @@ uvicorn
 pydantic
 jinja2
 python-multipart
-sentence-transformers
 faiss-cpu
 numpy
 pandas
 scikit-learn
+torch==2.1.2+cpu
+sentence-transformers==2.2.2
