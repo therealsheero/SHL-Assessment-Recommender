@@ -5,14 +5,14 @@ The system is designed to help hiring managers and recruiters quickly identify a
 
 ---
 
-## 🔍 Problem Overview
+## Problem Overview
 
 Hiring teams often rely on keyword-based search and manual filtering to select assessments, which is time-consuming and error-prone.  
 This project builds a **semantic search–based recommendation system** that understands job descriptions and returns relevant SHL assessments in a structured and balanced manner.
 
 ---
 
-## 🚀 Key Features
+## Key Features
 
 - Semantic search over 389+ SHL Individual Test Solutions
 - Job description input as free text (JD or query)
@@ -23,7 +23,7 @@ This project builds a **semantic search–based recommendation system** that und
 
 ---
 
-## 🧠 System Architecture
+## System Architecture
 
 ```
 
@@ -43,7 +43,7 @@ Final Recommendations
 
 ---
 
-## 🛠️ Tech Stack
+## Tech Stack
 
 ### Core Technologies
 - **Python**
@@ -55,11 +55,11 @@ Final Recommendations
 
 ---
 
-## 📊 Why FAISS?
+## Why FAISS?
 
 FAISS was chosen for:
 - Fast and efficient semantic similarity search
-- Lightweight local deployment
+- Lightweight deployment
 - Deterministic retrieval behavior
 - Easy integration with Python ML pipelines
 
@@ -67,7 +67,7 @@ This makes the system fully reproducible without external vector DB dependencies
 
 ---
 
-## 🧩 Recommendation Pipeline
+## Recommendation Pipeline
 
 ### 1. Data Ingestion
 - Scraped SHL Product Catalog directly from shl.com
@@ -106,18 +106,8 @@ This makes the system fully reproducible without external vector DB dependencies
 ## 🌐 API Endpoints
 
 ### Health Check
-```
+<img width="1920" height="970" alt="Screenshot (38)" src="https://github.com/user-attachments/assets/c35d8ae7-0537-41e1-9e03-4efb817a2357" />
 
-GET /health
-
-````
-
-Response:
-```json
-{ "status": "ok" }
-````
-
----
 
 ### Recommendation Endpoint
 
