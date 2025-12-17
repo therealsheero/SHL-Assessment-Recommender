@@ -1,5 +1,7 @@
 # SHL Assessment Recommendation System
 
+https://shl-assessment-recommender-yhxi.onrender.com/
+
 An intelligent, retrieval-augmented recommendation system that maps natural language job descriptions to the most relevant SHL assessments.  
 The system is designed to help hiring managers and recruiters quickly identify appropriate individual test solutions based on role requirements, skills, and competencies.
 
