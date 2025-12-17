@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SHL Assessment Recommendation System</title>
+
+    <style>
+        :root {
+            --primary: #0B2A4A;
+            --accent: #1F5FBF;
+            --bg: #F8FAFC;
+            --border: #DCE3EC;
+            --table-head: #E9EEF5;
+        }
+
+        body {
+            font-family: "Segoe UI", Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #222;
+
+            background-image: url("/static/bg2.jpg");
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 40px auto;
+            background: rgba(255, 255, 255, 0.96);
+            padding: 30px 40px;
+            border-radius: 6px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+        }
+
+        h1 {
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
+
+        p.subtitle {
+            color: #555;
+            margin-bottom: 25px;
+        }
+
+        label {
+            font-weight: 600;
+            color: var(--primary);
+        }
+
+        textarea {
+            width: 100%;
+            height: 140px;
+            padding: 12px;
+            font-size: 14px;
+            border: 1px solid var(--border);
+            border-radius: 4px;
+            resize: vertical;
+            margin-top: 8px;
+        }
+
+        textarea:focus {
+            outline: none;
+            border-color: var(--accent);
+        }
+
+        button {
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            font-size: 14px;
+            font-weight: 600;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-top: 15px;
+        }
+
+        button:hover {
+            background-color: var(--accent);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 30px;
+        }
+
+        th, td {
+            border: 1px solid var(--border);
+            padding: 12px;
+            text-align: left;
+            font-size: 14px;
+        }
+
+        th {
+            background-color: var(--table-head);
+            color: var(--primary);
+        }
+
+        td a {
+            color: var(--accent);
+            text-decoration: none;
+        }
+
+        td a:hover {
+            text-decoration: underline;
+        }
+
+        footer {
+            margin-top: 40px;
+            font-size: 12px;
+            color: #777;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+    <h1>SHL Assessment Recommendation System</h1>
+    <p class="subtitle">
+        Enter a job description or hiring query to receive relevant SHL individual assessments.
+    </p>
+
+    <form method="post" action="/ui-recommend">
+        <label for="query">Job Description / Query</label>
+        <textarea
+            id="query"
+            name="query"
+            placeholder="Write or paste the job description or hiring query here..."
+            required
+        >{{ query if query else "" }}</textarea>
+
+        <button type="submit">Get Recommendations</button>
+    </form>
+
+    {% if results %}
+    <h2 style="margin-top: 35px; color: var(--primary);">
+        Recommended Assessments
+    </h2>
+
+    <table>
+        <tr>
+            <th>Assessment Name</th>
+            <th>Assessment URL</th>
+        </tr>
+
+        {% for r in results %}
+        <tr>
+            <td>{{ r.name }}</td>
+            <td>
+                <a href="{{ r.url }}" target="_blank">
+                    {{ r.url }}
+                </a>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+    {% endif %}
+
+    <footer>
+        Powered by SHL Assessment Recommendation Engine
+    </footer>
+</div>
+
+</body>
+</html>
