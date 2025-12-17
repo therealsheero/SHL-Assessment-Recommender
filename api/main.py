@@ -20,47 +20,37 @@ templates = Jinja2Templates(directory="frontend/templates")
 
 class RecommendRequest(BaseModel):
     query: str
-    top_k: int = 10
-
-
-class Assessment(BaseModel):
-    assessment_name: str
-    assessment_url: str
-
-
-class RecommendResponse(BaseModel):
-    recommendations: List[Assessment]
-
 
 #endpoints
 
 @app.get("/health")
 def health_check():
-    return {"status": "ok"}
+    return {"status": "healthy"}
 
 
-@app.post("/recommend", response_model=RecommendResponse)
+@app.post("/recommend")
 def recommend(req: RecommendRequest):
     if not req.query.strip():
         raise HTTPException(status_code=400, detail="Query cannot be empty")
 
-    results = retrieve_assessments(req.query, top_k=req.top_k)
+    results = retrieve_assessments(req.query, top_k=10)
 
-    if not results:
-        raise HTTPException(
-            status_code=404,
-            detail="No relevant assessments found"
-        )
+    formatted = []
+    for r in results:
+        formatted.append({
+            "url": r["url"],
+            "name": r["name"],
+            "adaptive_support": r.get("adaptive_irt", "No"),
+            "description": r.get("description", ""),
+            "duration": int(r.get("assessment_length", 0)) if str(r.get("assessment_length", "")).isdigit() else 0,
+            "remote_support": r.get("remote_testing", "No"),
+            "test_type": r["test_type"] if isinstance(r["test_type"], list) else [r["test_type"]]
+        })
 
-    recommendations = [
-        {
-            "assessment_name": r["name"],
-            "assessment_url": r["url"]
-        }
-        for r in results
-    ]
+    return {
+        "recommended_assessments": formatted
+    }
 
-    return {"recommendations": recommendations}
 
 
 
