@@ -111,35 +111,13 @@ This makes the system fully reproducible without external vector DB dependencies
 
 ### Recommendation Endpoint
 
-```
-POST /recommend
-```
+<img width="1920" height="972" alt="Screenshot (36)" src="https://github.com/user-attachments/assets/c2300166-c0d1-413b-9f28-5ed4a9750336" />
+<img width="1920" height="968" alt="Screenshot (37)" src="https://github.com/user-attachments/assets/cb1c896e-3a87-416a-bf86-bade86c02d66" />
 
-Request:
-
-```json
-{
-  "query": "I am hiring a Java developer with good communication skills",
-  "top_k": 5
-}
-```
-
-Response:
-
-```json
-{
-  "recommendations": [
-    {
-      "assessment_name": "Java Web Services (New)",
-      "assessment_url": "https://www.shl.com/solutions/products/product-catalog/view/java-web-services-new/"
-    }
-  ]
-}
-```
 
 ---
 
-## 🖥️ Web Application
+## Web Application
 
 * Simple frontend built using HTML, CSS, and Jinja2
 * SHL-inspired color scheme
@@ -147,12 +125,16 @@ Response:
 
   * Enter job descriptions
   * View recommended assessments instantly
+<img width="1919" height="967" alt="Screenshot 2025-12-17 153832" src="https://github.com/user-attachments/assets/1a7b2cc7-07ee-4f22-a562-966f8efde0db" />
+<img width="1919" height="964" alt="Screenshot 2025-12-17 153843" src="https://github.com/user-attachments/assets/00a4f92a-4d06-4b5a-bb46-f2dde62859c5" />
+
 
 The frontend is served from the same FastAPI application.
 
+
 ---
 
-## 📈 Evaluation
+## Evaluation
 
 The system is evaluated using **Mean Recall@10**, as required.
 
@@ -171,7 +153,7 @@ Mean Recall@10: 0.168
 
 ---
 
-## 📂 Project Structure
+## Project Structure
 
 ```
 SHL/
@@ -200,11 +182,11 @@ SHL/
 
 ---
 
-## ▶️ Running Locally
+## Running Locally
 
 ```bash
 pip install -r requirements.txt
-uvicorn api.main:app --reload
+python -m uvicorn api.main:app --reload
 ```
 
 Open:
@@ -214,7 +196,7 @@ Open:
 
 ---
 
-## 🧪 Example Query
+## Example Query
 
 > “I am hiring a Java developer who can collaborate with business stakeholders.”
 
@@ -225,9 +207,3 @@ Returns a balanced mix of:
 
 ---
 
-## 👤 Author
-
-**Shreeya**
-SHL GenAI Take-Home Assessment Submission
-
-```
