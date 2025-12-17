@@ -25,11 +25,11 @@ def load_resources():
 
     return _model, _index, _metadata
 def retrieve_assessments(query: str, top_k: int = 10):
-    query_embedding = model.encode([query])
+    query_embedding = _model.encode([query])
 
-    distances, indices = index.search(query_embedding, 20)
+    distances, indices = _index.search(query_embedding, 20)
 
-    raw_results = [metadata[idx] for idx in indices[0]]
+    raw_results = [_metadata[idx] for idx in indices[0]]
     ranked_results = rank_assessments(raw_results, top_k=20)
     balanced_results = balance_assessments(ranked_results, final_k=top_k)
 
