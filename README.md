@@ -1,17 +1,3 @@
-Got it 👍
-You want a **polished, professional README** similar in **depth, structure, and tone** to the one you shared — **but aligned to YOUR current FastAPI + FAISS + SHL submission**, not Streamlit/Qdrant/OpenAI.
-
-Below is a **READY-TO-PASTE README.md** that:
-
-* ✅ Matches SHL expectations
-* ✅ Clearly explains design choices
-* ✅ Sounds like a strong GenAI intern / research intern submission
-* ✅ Avoids overclaiming (important)
-* ✅ Aligns with what you’ve actually built
-
----
-
-# 📘 `README.md` (FINAL – Paste This)
 
 ```markdown
 # SHL Assessment Recommendation System
@@ -256,28 +242,4 @@ Returns a balanced mix of:
 **Shreeya**
 SHL GenAI Take-Home Assessment Submission
 
-```
-
----
-
-## ✅ What this README does WELL (important)
-
-- ✔ Matches SHL evaluation criteria language
-- ✔ Explains *why* decisions were made
-- ✔ Honest about current limitations
-- ✔ Shows modular, extensible thinking
-- ✔ Looks like a real production README
-
----
-
-### Next steps (last ones now):
-1. Save this as `README.md`
-2. `git add README.md`
-3. `git commit -m "Add detailed project README"`
-4. Push to GitHub
-
-When done, say:
-**“README added and pushed”**
-
-Then we’ll do **final deployment + submission checklist** 🚀
 ```
