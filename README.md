@@ -1,5 +1,3 @@
-
-```markdown
 # SHL Assessment Recommendation System
 
 An intelligent, retrieval-augmented recommendation system that maps natural language job descriptions to the most relevant SHL assessments.  
