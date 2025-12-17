@@ -5,13 +5,25 @@ from sentence_transformers import SentenceTransformer
 from recommender.rank import rank_assessments
 from recommender.balance import balance_assessments
 
-model = SentenceTransformer("all-MiniLM-L6-v2")
-index = faiss.read_index("embeddings/faiss_index/index.faiss")
-
-with open("embeddings/faiss_index/metadata.pkl", "rb") as f:
-    metadata = pickle.load(f)
+_model = None
+_index = None
+_metadata = None
 
 
+def load_resources():
+    global _model, _index, _metadata
+
+    if _model is None:
+        _model = SentenceTransformer("all-MiniLM-L6-v2")
+
+    if _index is None:
+        _index = faiss.read_index("embeddings/faiss_index/index.faiss")
+
+    if _metadata is None:
+        with open("embeddings/faiss_index/metadata.pkl", "rb") as f:
+            _metadata = pickle.load(f)
+
+    return _model, _index, _metadata
 def retrieve_assessments(query: str, top_k: int = 10):
     query_embedding = model.encode([query])
 
