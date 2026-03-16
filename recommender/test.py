@@ -1,5 +1,4 @@
 from recommender.retrieve import retrieve_assessments
-#from recommender.retrieve import retrieve_assessments
 
 results = retrieve_assessments(
     "Looking for a Java developer with good collaboration skills",
