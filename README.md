@@ -61,8 +61,7 @@ Final Recommendations
 
 FAISS was chosen for:
 - Fast and efficient semantic similarity search
-- Lightweight deployment
-- Deterministic retrieval behavior
+- Lightweight deployment and deterministic retrieval behavior
 - Easy integration with Python ML pipelines
 
 This makes the system fully reproducible without external vector DB dependencies.
