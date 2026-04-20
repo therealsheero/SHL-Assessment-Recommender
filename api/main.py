@@ -34,6 +34,7 @@ def recommend(req: RecommendRequest):
         raise HTTPException(status_code=400, detail="Query cannot be empty")
 
     results = retrieve_assessments(req.query, top_k=10)
+    results = retrieve_assessments(req.query, top_k=20)
 
     formatted = []
     for r in results:
