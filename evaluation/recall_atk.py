@@ -47,7 +47,7 @@ def main():
 
         print(f"Query: {query}")
         print(f"Recall@10: {recall:.2f}\n")
-
+    # mean_recall = sum(recalls) / len(recalls)
     mean_recall = sum(recalls) / len(recalls)
     print(f"Mean Recall@10: {mean_recall:.3f}")
 
