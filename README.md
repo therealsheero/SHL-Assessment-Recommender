@@ -113,7 +113,6 @@ This makes the system fully reproducible without external vector DB dependencies
 
 
 ---
-
 ## Web Application
 
 * Simple frontend built using HTML, CSS, and Jinja2
