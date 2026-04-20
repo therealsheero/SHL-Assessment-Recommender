@@ -194,7 +194,7 @@ Open:
 
 ## Example Query
 
-> “I am hiring a Java developer who can collaborate with business stakeholders.”
+“I am hiring a Java developer who can collaborate with business stakeholders.”
 
 Returns a balanced mix of:
 
